@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defersrc="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -10,10 +11,59 @@
     <h1>Salary Calculator</h1>
   </header>
   <main>
-    <h2>Add Employee</h2>
-    <h2>Employees</h2>
+      <section>
+        <h2>Add Employee</h2>
+          <form>
+            <input
+              placeholder="first name"
+              type="text"
+              data-testid="firstNameInput"
+              id= 'firstName'>
+            <input
+              placeholder="last name"
+              type="text"
+              data-testid="lastNameInput"
+              id="lastName">
+            <input
+              placeholder="ID number"
+              type="text"
+              data-testid="idInput"
+              id='id'>
+            <input
+              placeholder="title"
+              type="text"
+              data-testid="titleInput"
+              id='title'>
+            <input
+              placeholder="annual salary"
+              type="text"
+              data-testid="annualSalaryInput"
+              id='salary'>
+            <button
+            Id="submitted" onclick="textToTable(event)">Submit</button>
+          </form> 
+      </section> 
+    <section>
+      <h2>Employee:s</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Anual Salary</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTable">
+          </tbody>
+        </table> 
+    </section>
   </main>
   <footer>
+    <!-- * If the total monthly cost **exceeds $20,000**, apply an `over-budget` CSS class to the footer element.
+    * When applied, this CSS class should provide a clear visual indication that the monthly cost has been exceeded. (This could be as simple as turning the footer text red.) -->
     <p>Total Monthly</p>
   </footer>
 </body>
