@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
-  <script defersrc="script.js"></script>
+  <script defer src="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -11,9 +11,9 @@
     <h1>Salary Calculator</h1>
   </header>
   <main>
-      <section>
+      <section id="employeeForm">
         <h2>Add Employee</h2>
-          <form>
+          <form id="getEmployeeData">
             <input
               placeholder="first name"
               type="text"
@@ -40,11 +40,11 @@
               data-testid="annualSalaryInput"
               id='salary'>
             <button
-            Id="submitted" onclick="textToTable(event)">Submit</button>
+            id="submitted" onclick="textToTable(event)" data-testid="submitButton">Submit</button>
           </form> 
       </section> 
     <section>
-      <h2>Employee:s</h2>
+      <h2>Employees:</h2>
         <table>
           <thead>
             <tr>
@@ -62,9 +62,8 @@
     </section>
   </main>
   <footer>
-    <!-- * If the total monthly cost **exceeds $20,000**, apply an `over-budget` CSS class to the footer element.
-    * When applied, this CSS class should provide a clear visual indication that the monthly cost has been exceeded. (This could be as simple as turning the footer text red.) -->
-    <p>Total Monthly</p>
+    <div id="footer-text">Total Monthly</div>
+    <span id="monthlyCost">0</span>
   </footer>
 </body>
 </html>

@@ -1,37 +1,68 @@
 console.log('testing')
-
+let totalMonthlySalary= 0
+//puts info into the table
 function textToTable(event){
-    event.preventDefault();
+    event.preventDefault(); //prevents form from clearing 
     console.log('textToTable')
     let firstName = document.getElementById('firstName').value;
-    console.log(firstName)
+    console.log('adds employees first name',firstName)
     let lastName = document.getElementById('lastName').value;
-    console.log(lastName)
+    console.log('adds employees last name',lastName)
     let id = document.getElementById('id').value;
-    console.log(id)
+    console.log('id',id)
     let title = document.getElementById('title').value;
-    console.log(title)
+    console.log('title',title)
     let salary = document.getElementById('salary').value;
+    console.log('salary',salary)
+
+    //makes string text salary into a namber.
+    salary = Number(salary)
     console.log(salary)
 
-  let newEmployee= `
+    // takes individial salary and adds to total salary pool
+    totalMonthlySalary = totalMonthlySalary + salary; 
+    console.log(totalMonthlySalary)
+
+    //divide total salary by 12
+    let monthlyCost = totalMonthlySalary / 12
+    console.log("total devided by 12",monthlyCost)
+    //needs to log monthly cost to footer
+    //gets footer
+    let footer = document.getElementById("footer");
+    // footer.textContent = "Monthly Cost: $" + monthlyCost.toFixed(2);
+    if (totalMonthlySalary > 20000) {
+        footer.classList.toggle("over-budget"); }
+    console.log("footer",footer) 
+
+    //css class change color  If the total monthly cost **exceeds $20,000**, apply an `over-budget` CSS class to the footer element.
+    //* When applied, this CSS class should provide a clear visual indication that the monthly cost has been exceeded. (This could be as simple as turning the footer text red.) -->
+    
+//add new employee onto a new table row.. string interpelation 
+  let newEmployee=`
     <tr>
       <td>${firstName}</td>
       <td>${lastName}</td>
       <td>${id}</td>
       <td>${title}</td>
       <td>${salary}</td>
-      <td><button onclick="delete()">❌</button></td>
+      <td><button onclick="deleteEmployee(event)">❌</button></td>
     </tr>`
+    //clears the imput field back to an empty string
     document.getElementById('employeeTable').innerHTML += newEmployee
     console.log(document.getElementById('employeeTable'))
     console.log(newEmployee)
-    document.getElementById('fistName').value=""
+    document.getElementById('firstName').value=""
     document.getElementById('lastName').value=""
     document.getElementById('id').value=""
     document.getElementById('title').value=""
     document.getElementById('salary').value=""
-
+    
+}
+function deleteEmployee(event){
+     let toDelete = event.target.parentElement.parentElement;
+     toDelete.remove();
+     }
   
-  } 
+   
+
   
