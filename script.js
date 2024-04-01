@@ -26,13 +26,15 @@ function textToTable(event){
     //divide total salary by 12
     let monthlyCost = totalMonthlySalary / 12
     console.log("total devided by 12",monthlyCost)
-    //needs to log monthly cost to footer
-    //gets footer
-    let footer = document.getElementById("footer");
-    // footer.textContent = "Monthly Cost: $" + monthlyCost.toFixed(2);
-    if (totalMonthlySalary > 20000) {
-        footer.classList.toggle("over-budget"); }
-    console.log("footer",footer) 
+    //needs to log monthly cost to footerget 
+    //gets footer\
+    let monthlyBucket = document.getElementById("monthlyCost");
+    monthlyBucket.textContent = '$' + monthlyCost.toFixed(2);
+    let foot = document.getElementById("footer");
+     if (monthlyCost > 20000) {
+        foot.classList.toggle("over-budget");
+     }
+    console.log("footer",monthlyBucket) 
 
     //css class change color  If the total monthly cost **exceeds $20,000**, apply an `over-budget` CSS class to the footer element.
     //* When applied, this CSS class should provide a clear visual indication that the monthly cost has been exceeded. (This could be as simple as turning the footer text red.) -->
